@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Premium Yu-Gi-Oh trading cards - Authentic cards from Blue-Eyes White Dragon to the latest releases. Buy, sell, and trade with confidence.">
+    <meta name="keywords" content="Yu-Gi-Oh, trading cards, Blue-Eyes White Dragon, Magic the Gathering, card game, collectibles">
+    <meta name="author" content="Yu-Gi-Oh Card Store">
+    <title>Yu-Gi-Oh Card Store - Premium Trading Cards</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-brand">
+                <i class="fas fa-dragon"></i>
+                <span>Yu-Gi-Oh Store</span>
+            </div>
+            <div class="nav-menu">
+                <a href="#home" class="nav-link">Home</a>
+                <a href="#catalog" class="nav-link">Cards</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#contact" class="nav-link">Contact</a>
+                <a href="#faq" class="nav-link">FAQ</a>
+            </div>
+            <div class="nav-actions">
+                <div class="search-container">
+                    <input type="text" id="searchInput" placeholder="Search cards...">
+                    <button id="searchBtn"><i class="fas fa-search"></i></button>
+                </div>
+                <div class="user-actions">
+                    <button id="loginBtn" class="btn btn-secondary">Login</button>
+                    <button id="cartBtn" class="btn btn-primary">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span id="cartCount">0</span>
+                    </button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Home Section -->
+        <section id="home" class="hero-section">
+            <div class="hero-content">
+                <h1 class="hero-title">Welcome to the Ultimate Yu-Gi-Oh Experience</h1>
+                <p class="hero-subtitle">Discover rare cards, build your deck, and dominate the duel!</p>
+                <div class="hero-buttons">
+                    <a href="#catalog" class="btn btn-primary btn-large">Browse Cards</a>
+                    <a href="#about" class="btn btn-secondary btn-large">Learn More</a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="floating-card card-blue-eyes">
+                    <div class="card-front">
+                        <img src="https://via.placeholder.com/200x300/0066cc/ffffff?text=Blue-Eyes" alt="Blue-Eyes White Dragon">
+                    </div>
+                </div>
+                <div class="floating-card card-dark-magician">
+                    <div class="card-front">
+                        <img src="https://via.placeholder.com/200x300/660066/ffffff?text=Dark+Magician" alt="Dark Magician">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Cards Section -->
+        <section class="featured-section">
+            <div class="container">
+                <h2 class="section-title">Featured Cards</h2>
+                <div class="featured-grid" id="featuredGrid">
+                    <!-- Featured cards will be populated by JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Latest Arrivals Section -->
+        <section class="latest-section">
+            <div class="container">
+                <h2 class="section-title">Latest Arrivals</h2>
+                <div class="latest-grid" id="latestGrid">
+                    <!-- Latest cards will be populated by JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Catalog Section -->
+        <section id="catalog" class="catalog-section">
+            <div class="container">
+                <h2 class="section-title">Card Catalog</h2>
+                
+                <!-- Filters -->
+                <div class="filters-container">
+                    <div class="filter-group">
+                        <label for="rarityFilter">Rarity:</label>
+                        <select id="rarityFilter">
+                            <option value="">All Rarities</option>
+                            <option value="Common">Common</option>
+                            <option value="Rare">Rare</option>
+                            <option value="Ultra Rare">Ultra Rare</option>
+                            <option value="Secret Rare">Secret Rare</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label for="typeFilter">Type:</label>
+                        <select id="typeFilter">
+                            <option value="">All Types</option>
+                            <option value="Monster">Monster</option>
+                            <option value="Spell">Spell</option>
+                            <option value="Trap">Trap</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label for="setFilter">Set:</label>
+                        <select id="setFilter">
+                            <option value="">All Sets</option>
+                            <option value="Legend of Blue Eyes White Dragon">Legend of Blue Eyes</option>
+                            <option value="Metal Raiders">Metal Raiders</option>
+                            <option value="Magic Ruler">Magic Ruler</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label for="sortBy">Sort By:</label>
+                        <select id="sortBy">
+                            <option value="name">Name A-Z</option>
+                            <option value="price-low">Price Low to High</option>
+                            <option value="price-high">Price High to Low</option>
+                            <option value="rarity">Rarity</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Cards Grid -->
+                <div class="cards-grid" id="cardsGrid">
+                    <!-- Cards will be populated by JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="about-section">
+            <div class="container">
+                <h2 class="section-title">About Us</h2>
+                <div class="about-content">
+                    <div class="about-text">
+                        <p>Welcome to the premier destination for Yu-Gi-Oh trading cards. We are passionate collectors and duelists who understand the value of authentic, high-quality cards.</p>
+                        <p>Our commitment to authenticity is unmatched - every card in our collection is verified and guaranteed to be genuine. Whether you're a competitive player, collector, or just starting your journey, we have the cards you need.</p>
+                        <div class="guarantees">
+                            <div class="guarantee">
+                                <i class="fas fa-shield-alt"></i>
+                                <h3>100% Authentic</h3>
+                                <p>Every card verified by experts</p>
+                            </div>
+                            <div class="guarantee">
+                                <i class="fas fa-shipping-fast"></i>
+                                <h3>Fast Shipping</h3>
+                                <p>Secure packaging worldwide</p>
+                            </div>
+                            <div class="guarantee">
+                                <i class="fas fa-undo"></i>
+                                <h3>Easy Returns</h3>
+                                <p>30-day return policy</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact-section">
+            <div class="container">
+                <h2 class="section-title">Contact Us</h2>
+                <div class="contact-content">
+                    <div class="contact-info">
+                        <h3>Get in Touch</h3>
+                        <p>Have questions about our cards or need help with your order? We're here to help!</p>
+                        <div class="contact-details">
+                            <div class="contact-item">
+                                <i class="fas fa-envelope"></i>
+                                <span>info@yugiohstore.com</span>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-phone"></i>
+                                <span>+1 (555) 123-4567</span>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>123 Duelist Street, Card City, CC 12345</span>
+                            </div>
+                        </div>
+                    </div>
+                    <form class="contact-form" id="contactForm">
+                        <div class="form-group">
+                            <input type="text" id="contactName" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="contactEmail" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="contactSubject" placeholder="Subject" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="contactMessage" placeholder="Your Message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="faq" class="faq-section">
+            <div class="container">
+                <h2 class="section-title">Frequently Asked Questions</h2>
+                <div class="faq-content">
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>How do I know the cards are authentic?</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>All our cards are verified by certified Yu-Gi-Oh experts. We use advanced authentication methods and provide detailed condition reports with every purchase.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>What's your shipping policy?</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>We offer free shipping on orders over $50. Standard shipping takes 3-5 business days, while express shipping (1-2 days) is available for an additional fee.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>Can I return cards if I'm not satisfied?</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Yes! We offer a 30-day return policy. Cards must be returned in the same condition they were received, with original packaging.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Yu-Gi-Oh Store</h3>
+                    <p>Your trusted source for authentic Yu-Gi-Oh trading cards.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#catalog">Cards</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Customer Service</h3>
+                    <ul>
+                        <li><a href="#faq">FAQ</a></li>
+                        <li><a href="#">Shipping Info</a></li>
+                        <li><a href="#">Returns</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Newsletter</h3>
+                    <p>Stay updated with new arrivals and special offers!</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Your email address">
+                        <button type="submit" class="btn btn-primary">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Yu-Gi-Oh Store. All rights reserved. Yu-Gi-Oh is a trademark of Konami Digital Entertainment.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modals -->
+    <!-- Login Modal -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Login</h2>
+            <form id="loginForm">
+                <div class="form-group">
+                    <input type="email" id="loginEmail" placeholder="Email" required>
+                </div>
+                <div class="form-group">
+                    <input type="password" id="loginPassword" placeholder="Password" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Login</button>
+            </form>
+            <p>Don't have an account? <a href="#" id="showRegister">Register here</a></p>
+        </div>
+    </div>
+
+    <!-- Register Modal -->
+    <div id="registerModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Register</h2>
+            <form id="registerForm">
+                <div class="form-group">
+                    <input type="text" id="registerName" placeholder="Full Name" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" id="registerEmail" placeholder="Email" required>
+                </div>
+                <div class="form-group">
+                    <input type="password" id="registerPassword" placeholder="Password" required>
+                </div>
+                <div class="form-group">
+                    <input type="password" id="registerConfirmPassword" placeholder="Confirm Password" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Register</button>
+            </form>
+            <p>Already have an account? <a href="#" id="showLogin">Login here</a></p>
+        </div>
+    </div>
+
+    <!-- Cart Modal -->
+    <div id="cartModal" class="modal">
+        <div class="modal-content cart-modal">
+            <span class="close">&times;</span>
+            <h2>Shopping Cart</h2>
+            <div id="cartItems" class="cart-items">
+                <!-- Cart items will be populated by JavaScript -->
+            </div>
+            <div class="cart-summary">
+                <div class="cart-total">
+                    <span>Subtotal:</span>
+                    <span id="cartSubtotal">$0.00</span>
+                </div>
+                <div class="cart-total">
+                    <span>Tax:</span>
+                    <span id="cartTax">$0.00</span>
+                </div>
+                <div class="cart-total">
+                    <span>Shipping:</span>
+                    <span id="cartShipping">$0.00</span>
+                </div>
+                <div class="cart-total total">
+                    <span>Total:</span>
+                    <span id="cartTotal">$0.00</span>
+                </div>
+            </div>
+            <div class="cart-actions">
+                <button id="clearCart" class="btn btn-secondary">Clear Cart</button>
+                <button id="checkoutBtn" class="btn btn-primary">Checkout</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Product Detail Modal -->
+    <div id="productModal" class="modal">
+        <div class="modal-content product-modal">
+            <span class="close">&times;</span>
+            <div id="productDetail" class="product-detail">
+                <!-- Product details will be populated by JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Checkout Modal -->
+    <div id="checkoutModal" class="modal">
+        <div class="modal-content checkout-modal">
+            <span class="close">&times;</span>
+            <h2>Checkout</h2>
+            <form id="checkoutForm">
+                <div class="checkout-section">
+                    <h3>Billing Information</h3>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <input type="text" id="billingFirstName" placeholder="First Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="billingLastName" placeholder="Last Name" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="billingEmail" placeholder="Email" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="billingAddress" placeholder="Address" required>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <input type="text" id="billingCity" placeholder="City" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="billingState" placeholder="State" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="billingZip" placeholder="ZIP Code" required>
+                        </div>
+                    </div>
+                </div>
+                <div class="checkout-section">
+                    <h3>Payment Information</h3>
+                    <div class="form-group">
+                        <input type="text" id="cardNumber" placeholder="Card Number" required>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <input type="text" id="cardExpiry" placeholder="MM/YY" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="cardCvv" placeholder="CVV" required>
+                        </div>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary btn-large">Complete Order</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Admin Panel (Hidden by default) -->
+    <div id="adminPanel" class="admin-panel" style="display: none;">
+        <div class="admin-header">
+            <h2>Admin Dashboard</h2>
+            <button id="closeAdmin" class="btn btn-secondary">Close</button>
+        </div>
+        <div class="admin-content">
+            <div class="admin-section">
+                <h3>Add New Card</h3>
+                <form id="addCardForm">
+                    <div class="form-group">
+                        <input type="text" id="adminCardName" placeholder="Card Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="adminCardSet" placeholder="Card Set" required>
+                    </div>
+                    <div class="form-group">
+                        <select id="adminCardType" required>
+                            <option value="">Select Type</option>
+                            <option value="Monster">Monster</option>
+                            <option value="Spell">Spell</option>
+                            <option value="Trap">Trap</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <select id="adminCardRarity" required>
+                            <option value="">Select Rarity</option>
+                            <option value="Common">Common</option>
+                            <option value="Rare">Rare</option>
+                            <option value="Ultra Rare">Ultra Rare</option>
+                            <option value="Secret Rare">Secret Rare</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <input type="number" id="adminCardPrice" placeholder="Price" step="0.01" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="number" id="adminCardStock" placeholder="Stock Quantity" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="adminCardDescription" placeholder="Description" rows="3" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Add Card</button>
+                </form>
+            </div>
+            <div class="admin-section">
+                <h3>Manage Orders</h3>
+                <div id="ordersList" class="orders-list">
+                    <!-- Orders will be populated by JavaScript -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="data.js"></script>
+    <script src="app.js"></script>
+</body>
+</html> 
